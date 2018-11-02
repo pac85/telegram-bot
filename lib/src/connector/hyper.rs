@@ -83,9 +83,10 @@ impl<C: Connect> Connector for HyperConnector<C> {
 
 /// Returns default hyper connector. Uses one resolve thread and `HttpsConnector`.
 pub fn default_connector(handle: &Handle) -> Result<Box<Connector>, Error> {
-    let connector = HttpsConnector::new(1).map_err(|err| {
+    /*let connector = HttpsConnector::new(1, handle).map_err(|err| {
         ::std::io::Error::new(::std::io::ErrorKind::Other, format!("tls error: {}", err))
     })?;
     let config = Client::configure().connector(connector);
+    Ok(Box::new(HyperConnector::new(config.build(handle))))*/
     Ok(Box::new(HyperConnector::new(1)))
 }
