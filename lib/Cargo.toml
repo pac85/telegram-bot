@@ -29,7 +29,7 @@ version = "0.11"
 optional = true
 
 [dependencies.hyper-tls]
-version = "0.1"
+version = "0.3.1"
 optional = true
 
 [features]
